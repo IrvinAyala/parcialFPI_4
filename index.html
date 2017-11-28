@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script type="text/javascript" src="js/gimnasio.js"></script>
 
     <title>"El Tío"</title>
 
@@ -26,7 +27,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="cargarSucursal()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
@@ -89,7 +90,7 @@
             </a>
           </div>
           <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3" onclick="ocultarDivs()">
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
                   <i class="fa fa-search-plus fa-3x"></i>
@@ -195,6 +196,7 @@
               <hr class="star-dark mb-5">
               <img class="img-fluid mb-5" src="img/portfolio/cabin.png" alt="">
               <p class="mb-5">Visítanos en cualquiera de nuestras sucursales del país</p>
+              <p id="demo"></p>
               <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                 <i class="fa fa-close"></i>
                 Cerrar</a>
@@ -235,10 +237,16 @@
         <div class="container text-center">
           <div class="row">
             <div class="col-lg-8 mx-auto">
-              <h2 class="text-secondary text-uppercase mb-0">Agregar cliente</h2>
+              <h2 class="text-secondary text-uppercase mb-0">Cliente</h2>
               <hr class="star-dark mb-5">
               <img class="img-fluid mb-5" src="img/portfolio/circus.png" alt="">
-              <p class="mb-5">Agrega a nuestro nuevo cliente!</p>
+              <p class="mb-5">Puedes agregar, eliminar o modificar la información de nuestros clientes</p>
+              <button type="submit" class="btn btn-primary btn-xl" id="btnagregar" onclick="mostrarAgregar()">Agregar</button>
+              <button type="submit" class="btn btn-primary btn-xl" id="btneliminar" onclick="mostrarEliminar()">Eliminar</button>
+              <button type="submit" class="btn btn-primary btn-xl" id="btneditar" onclick="mostrarEditar()">Editar</button>
+              <br><br>
+              <!--Para formulario de agregar-->
+              <div class="container" id="contenedorAgregar">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Nombre</label>
@@ -253,6 +261,50 @@
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
+              <br>
+              <a id="agregarUser" class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <i class="fa fa-close"></i>
+                Agregar</a>
+                <br><br>
+              </div>
+
+              <!--Para formulario de eliminar-->
+              <div class="container" id="contenedorEliminar">
+                <br><br>
+                <input id="buscadorUser" type="text" class="form-control" placeholder="Busque una usuario" list="lista">
+                <datalist id="lista"></datalist>
+                <br>
+                <a id="eliminarUser" class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                  <i class="fa fa-close"></i>
+                  Eliminar</a>
+                  <br><br>
+              </div>
+              <!--Para formulario de editar-->
+              <div class="container" id="contenedorEditar">
+                <br><br>
+              <input id="buscadorUser" type="text" class="form-control" placeholder="Busque una usuario" list="lista">
+              <datalist id="lista"></datalist>
+              <br>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Nombre</label>
+                  <input class="form-control" id="name" type="text" placeholder="Nombre" required="required" data-validation-required-message="Por favor ingresar nombre">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Sexo</label>
+                  <input class="form-control" id="name" type="text" placeholder="Sexo" required="required" data-validation-required-message="Por favor ingresar sexo">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <br>
+              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <i class="fa fa-close"></i>
+                Guardar cambios</a>
+              </div>
+              <br><br>
               <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                 <i class="fa fa-close"></i>
                 Cerrar</a>
@@ -269,10 +321,6 @@
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
